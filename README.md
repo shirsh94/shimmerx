@@ -1,6 +1,6 @@
-# Shimmerx
+# Flutter Shimmer Pro
 
-A powerful and flexible Flutter package for creating beautiful shimmer loading effects. Shimmerx provides multiple animation styles, gradient support, global theming, platform presets, and animation control.
+A powerful and flexible Flutter package for creating beautiful shimmer loading effects. Flutter Shimmer Pro provides multiple animation styles, gradient support, global theming, platform presets, and animation control.
 
 ## Features
 
@@ -12,11 +12,11 @@ A powerful and flexible Flutter package for creating beautiful shimmer loading e
 - 🔧 **Extension Methods** - Easy-to-use extension methods for quick implementation
 - 📱 **Material 3 Ready** - Modern UI components with Material 3 design
 
-## Why Shimmerx?
+## Why Flutter Shimmer Pro?
 
-While there are other shimmer packages available, Shimmerx stands out with its comprehensive feature set and modern approach:
+While there are other shimmer packages available, Flutter Shimmer Pro stands out with its comprehensive feature set and modern approach:
 
-| Feature | Shimmerx | shimmer | shimmer_loading |
+| Feature | Flutter Shimmer Pro | shimmer | shimmer_loading |
 |---------|----------|---------|-----------------|
 | **Animation Styles** | 10 unique effects | 1 basic effect | 1 basic effect |
 | **Gradient Support** | Linear, Radial, Sweep, Custom | Only LinearGradient | Only LinearGradient |
@@ -42,7 +42,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  shimmerx: ^0.0.1
+  flutter_shimmer_pro: ^0.0.1
 ```
 
 ## Getting Started
@@ -50,7 +50,7 @@ dependencies:
 ### Basic Usage
 
 ```dart
-import 'package:shimmerx/shimmerx.dart';
+import 'package:flutter_shimmer_pro/flutter_shimmer_pro.dart';
 
 // Simple shimmer with default gradient
 Shimmer(

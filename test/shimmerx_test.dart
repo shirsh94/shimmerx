@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shimmerx/shimmerx.dart';
+import 'package:flutter_shimmer_pro/flutter_shimmer_pro.dart';
 
 void main() {
   testWidgets('Shimmer with gradient renders child', (WidgetTester tester) async {

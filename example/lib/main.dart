@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shimmerx/shimmerx.dart';
+import 'package:flutter_shimmer_pro/flutter_shimmer_pro.dart';
 
 import 'placeholders.dart';
 

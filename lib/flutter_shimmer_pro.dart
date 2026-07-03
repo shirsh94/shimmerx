@@ -2,7 +2,7 @@
 /// A package provides an easy way to add shimmer effect to Flutter application
 ///
 
-library shimmerx;
+library flutter_shimmer_pro;
 
 export 'skeleton_widgets.dart';
 

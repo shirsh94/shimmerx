@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
 
-import 'shimmerx.dart';
+import 'flutter_shimmer_pro.dart';
 
 const Color _kBoneColor = Colors.white;
 
 Widget _shimmerSkeleton({
   required Widget child,
-  Color? baseColor,
-  Color? highlightColor,
+  Gradient? gradient,
   Duration period = const Duration(milliseconds: 1500),
   ShimmerDirection direction = ShimmerDirection.ltr,
   int loop = 0,
   bool enabled = true,
 }) {
-  return Shimmer.fromColors(
-    baseColor: baseColor ?? Colors.grey.shade300,
-    highlightColor: highlightColor ?? Colors.grey.shade100,
+  return Shimmer(
+    gradient: gradient ??
+        const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.centerRight,
+          colors: <Color>[
+            Color(0xFFE0E0E0),
+            Color(0xFFE0E0E0),
+            Color(0xFFF5F5F5),
+            Color(0xFFE0E0E0),
+            Color(0xFFE0E0E0),
+          ],
+          stops: <double>[0.0, 0.35, 0.5, 0.65, 1.0],
+        ),
     period: period,
     direction: direction,
     loop: loop,
@@ -44,23 +54,17 @@ Widget _boneBox({
 /// Circular avatar skeleton placeholder.
 class ShimmerAvatar extends StatelessWidget {
   final double size;
-  final Color? baseColor;
-  final Color? highlightColor;
   final bool enabled;
 
   const ShimmerAvatar({
     super.key,
     this.size = 48,
-    this.baseColor,
-    this.highlightColor,
     this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return _shimmerSkeleton(
-      baseColor: baseColor,
-      highlightColor: highlightColor,
       enabled: enabled,
       child: _boneBox(
         width: size,
@@ -76,8 +80,6 @@ class ShimmerText extends StatelessWidget {
   final double? width;
   final double height;
   final BorderRadius borderRadius;
-  final Color? baseColor;
-  final Color? highlightColor;
   final bool enabled;
 
   const ShimmerText({
@@ -85,16 +87,12 @@ class ShimmerText extends StatelessWidget {
     this.width,
     this.height = 14,
     this.borderRadius = const BorderRadius.all(Radius.circular(4)),
-    this.baseColor,
-    this.highlightColor,
     this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return _shimmerSkeleton(
-      baseColor: baseColor,
-      highlightColor: highlightColor,
       enabled: enabled,
       child: _boneBox(
         width: width,
@@ -110,8 +108,6 @@ class ShimmerButton extends StatelessWidget {
   final double? width;
   final double height;
   final BorderRadius borderRadius;
-  final Color? baseColor;
-  final Color? highlightColor;
   final bool enabled;
 
   const ShimmerButton({
@@ -119,16 +115,12 @@ class ShimmerButton extends StatelessWidget {
     this.width,
     this.height = 48,
     this.borderRadius = const BorderRadius.all(Radius.circular(8)),
-    this.baseColor,
-    this.highlightColor,
     this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return _shimmerSkeleton(
-      baseColor: baseColor,
-      highlightColor: highlightColor,
       enabled: enabled,
       child: _boneBox(
         width: width,
@@ -144,8 +136,6 @@ class ShimmerImage extends StatelessWidget {
   final double? width;
   final double height;
   final BorderRadius borderRadius;
-  final Color? baseColor;
-  final Color? highlightColor;
   final bool enabled;
 
   const ShimmerImage({
@@ -153,16 +143,12 @@ class ShimmerImage extends StatelessWidget {
     this.width,
     this.height = 160,
     this.borderRadius = const BorderRadius.all(Radius.circular(12)),
-    this.baseColor,
-    this.highlightColor,
     this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return _shimmerSkeleton(
-      baseColor: baseColor,
-      highlightColor: highlightColor,
       enabled: enabled,
       child: _boneBox(
         width: width,
@@ -177,24 +163,18 @@ class ShimmerImage extends StatelessWidget {
 class ShimmerCard extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final BorderRadius borderRadius;
-  final Color? baseColor;
-  final Color? highlightColor;
   final bool enabled;
 
   const ShimmerCard({
     super.key,
     this.padding = const EdgeInsets.all(16),
     this.borderRadius = const BorderRadius.all(Radius.circular(12)),
-    this.baseColor,
-    this.highlightColor,
     this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return _shimmerSkeleton(
-      baseColor: baseColor,
-      highlightColor: highlightColor,
       enabled: enabled,
       child: Container(
         width: double.infinity,
@@ -241,24 +221,18 @@ class ShimmerCard extends StatelessWidget {
 class ShimmerListTile extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final double avatarSize;
-  final Color? baseColor;
-  final Color? highlightColor;
   final bool enabled;
 
   const ShimmerListTile({
     super.key,
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
     this.avatarSize = 48,
-    this.baseColor,
-    this.highlightColor,
     this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return _shimmerSkeleton(
-      baseColor: baseColor,
-      highlightColor: highlightColor,
       enabled: enabled,
       child: Padding(
         padding: padding,
@@ -300,8 +274,6 @@ class ShimmerProfile extends StatelessWidget {
   final double avatarSize;
   final EdgeInsetsGeometry padding;
   final bool centered;
-  final Color? baseColor;
-  final Color? highlightColor;
   final bool enabled;
 
   const ShimmerProfile({
@@ -309,8 +281,6 @@ class ShimmerProfile extends StatelessWidget {
     this.avatarSize = 72,
     this.padding = const EdgeInsets.all(24),
     this.centered = true,
-    this.baseColor,
-    this.highlightColor,
     this.enabled = true,
   });
 
@@ -320,8 +290,6 @@ class ShimmerProfile extends StatelessWidget {
         centered ? CrossAxisAlignment.center : CrossAxisAlignment.start;
 
     return _shimmerSkeleton(
-      baseColor: baseColor,
-      highlightColor: highlightColor,
       enabled: enabled,
       child: Padding(
         padding: padding,
@@ -370,8 +338,6 @@ class ShimmerChatBubble extends StatelessWidget {
   final double width;
   final double height;
   final EdgeInsetsGeometry padding;
-  final Color? baseColor;
-  final Color? highlightColor;
   final bool enabled;
 
   const ShimmerChatBubble({
@@ -380,8 +346,6 @@ class ShimmerChatBubble extends StatelessWidget {
     this.width = 220,
     this.height = 48,
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-    this.baseColor,
-    this.highlightColor,
     this.enabled = true,
   });
 
@@ -395,8 +359,6 @@ class ShimmerChatBubble extends StatelessWidget {
     );
 
     return _shimmerSkeleton(
-      baseColor: baseColor,
-      highlightColor: highlightColor,
       enabled: enabled,
       child: Padding(
         padding: padding,
@@ -420,8 +382,6 @@ class ShimmerParagraph extends StatelessWidget {
   final double lineSpacing;
   final double lastLineWidthFactor;
   final EdgeInsetsGeometry padding;
-  final Color? baseColor;
-  final Color? highlightColor;
   final bool enabled;
 
   const ShimmerParagraph({
@@ -431,16 +391,12 @@ class ShimmerParagraph extends StatelessWidget {
     this.lineSpacing = 8,
     this.lastLineWidthFactor = 0.65,
     this.padding = EdgeInsets.zero,
-    this.baseColor,
-    this.highlightColor,
     this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return _shimmerSkeleton(
-      baseColor: baseColor,
-      highlightColor: highlightColor,
       enabled: enabled,
       child: Padding(
         padding: padding,
@@ -482,8 +438,6 @@ class ShimmerGrid extends StatelessWidget {
   final double childAspectRatio;
   final EdgeInsetsGeometry padding;
   final BorderRadius itemBorderRadius;
-  final Color? baseColor;
-  final Color? highlightColor;
   final bool enabled;
   final ScrollPhysics? physics;
   final bool shrinkWrap;
@@ -497,8 +451,6 @@ class ShimmerGrid extends StatelessWidget {
     this.childAspectRatio = 1,
     this.padding = const EdgeInsets.all(16),
     this.itemBorderRadius = const BorderRadius.all(Radius.circular(12)),
-    this.baseColor,
-    this.highlightColor,
     this.enabled = true,
     this.physics,
     this.shrinkWrap = false,
@@ -507,8 +459,6 @@ class ShimmerGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _shimmerSkeleton(
-      baseColor: baseColor,
-      highlightColor: highlightColor,
       enabled: enabled,
       child: GridView.builder(
         padding: padding,

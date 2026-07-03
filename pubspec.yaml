@@ -1,9 +1,9 @@
-name: shimmerx
+name: flutter_shimmer_pro
 description: "A powerful Flutter package for creating beautiful shimmer loading effects with 10 animation styles, gradient support, global theming, platform presets, and animation control."
 version: 0.0.1
-homepage: https://github.com/shirsh94/shimmerx
-repository: https://github.com/shirsh94/shimmerx
-issue_tracker: https://github.com/shirsh94/shimmerx/issues
+homepage: https://github.com/shirsh94/flutter_shimmer_pro
+repository: https://github.com/shirsh94/flutter_shimmer_pro
+issue_tracker: https://github.com/shirsh94/flutter_shimmer_pro/issues
 
 environment:
   sdk: '>=2.17.0 <4.0.0'
